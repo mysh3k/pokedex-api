@@ -18,8 +18,8 @@ class EggGroup(models.Model):
 class Pokemon(models.Model):
     pokemonIndex = models.IntegerField()
     pokemonName = models.CharField(max_length=32)
-    pokemonEvolution = models.ForeignKey("self", null=True, on_delete=models.DO_NOTHING)
-    pokemonPrevolution = models.ForeignKey("self", null=True, on_delete=models.DO_NOTHING)
+    pokemonEvolution = models.ForeignKey("self", null=True, on_delete=models.DO_NOTHING, related_name='evolution')
+    pokemonPrevolution = models.ForeignKey("self", null=True, on_delete=models.DO_NOTHING, related_name='prevolution')
     pokemonType = models.ManyToManyField(Type)
     pokemonEggGroup = models.ManyToManyField(EggGroup)
     pokemonLocation = models.ManyToManyField(Location)

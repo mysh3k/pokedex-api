@@ -4,9 +4,9 @@ from PokedexAPI import views
 
 router = routers.DefaultRouter()
 router.register(r'pokedex', views.PokedexViewSet)
-router.register(r'egggroups', views.OptionsViewSet)
-router.register(r'types', views.OptionsViewSet)
-router.register(r'locations', views.OptionsViewSet)
+router.register(r'egggroups', views.EggGroupsViewSet)
+router.register(r'types', views.TypesViewSet)
+router.register(r'locations', views.LocationsViewSet)
 
 
 # Wire up our API using automatic URL routing.

@@ -76,6 +76,13 @@ WSGI_APPLICATION = 'Pokedex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+REST_FRAMEWORK = {
+    # other settings...
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [],
+}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
