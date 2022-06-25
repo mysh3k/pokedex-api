@@ -5,25 +5,24 @@ from .models import Pokemon, Type, EggGroup, Location
 class PokemonsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Pokemon
-        fields = ['pokemonName', 'pokemonEvolution', 'pokemonPrevolution', 'pokemonType', 'pokemonType', 'pokemonEggGroup', 'pokemonLocation']
+        fields = ['pokemonIndex', 'pokemonName', 'pokemonEvolution', 'pokemonPrevolution', 'pokemonType', 'pokemonEggGroup', 'pokemonLocation']
 
 
 class TypesSerializer(serializers.HyperlinkedModelSerializer):
-    tag = PokemonsSerializer(read_only=True, many=True)
     class Meta:
         model = Type
-        fields = ['typeName', 'pokemonName']
+        fields = ['typeName']
 
 
 class EggGroupsSerializer(serializers.HyperlinkedModelSerializer):
     tag = PokemonsSerializer(read_only=True, many=True)
     class Meta:
         model = EggGroup
-        fields = ['groupName', 'pokemonName']
+        fields = ['groupName', 'tag']
 
 
 class LocationsSerializer(serializers.HyperlinkedModelSerializer):
     tag = PokemonsSerializer(read_only=True, many=True)
     class Meta:
         model = Location
-        fields = ['location', 'encounterType', 'pokemonName']
+        fields = ['location', 'encounterType', 'tag']
