@@ -16,7 +16,7 @@ class PokemonsSerializer2(serializers.HyperlinkedModelSerializer):
 class TypesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Type
-        fields = ['typeName', 'type2']
+        fields = ['typeName']
 
 
 class EggGroupsSerializer(serializers.HyperlinkedModelSerializer):
