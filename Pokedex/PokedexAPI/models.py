@@ -4,16 +4,19 @@ from django.utils import timezone
 
 class Type(models.Model):
     typeName = models.CharField(max_length=16)
-
+    def __str__(self):
+        return f'{self.typeName}'
 
 class Location(models.Model):
     location = models.CharField(max_length=32)
     encounterType = models.CharField(max_length=16)
-
+    def __str__(self):
+        return f'{self.location}, {self.encounterType}'
 
 class EggGroup(models.Model):
     groupName = models.CharField(max_length=16)
-
+    def __str__(self):
+        return f'{self.groupName}'
 
 class Pokemon(models.Model):
     pokemonIndex = models.IntegerField()
