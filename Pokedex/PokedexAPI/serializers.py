@@ -7,11 +7,16 @@ class PokemonsSerializer(serializers.HyperlinkedModelSerializer):
         model = Pokemon
         fields = ['pokemonIndex', 'pokemonName', 'pokemonEvolution', 'pokemonPrevolution', 'pokemonType', 'pokemonEggGroup', 'pokemonLocation']
 
+class PokemonsSerializer2(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Pokemon
+        fields = ['pokemonIndex', 'pokemonName', 'pokemonType', 'pokemonEggGroup', 'pokemonLocation']
+
 
 class TypesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Type
-        fields = ['typeName']
+        fields = ['typeName', 'type2']
 
 
 class EggGroupsSerializer(serializers.HyperlinkedModelSerializer):

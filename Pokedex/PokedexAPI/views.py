@@ -1,9 +1,17 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions
-from PokedexAPI.serializers import PokemonsSerializer, LocationsSerializer, EggGroupsSerializer, TypesSerializer
+from PokedexAPI.serializers import PokemonsSerializer, LocationsSerializer, EggGroupsSerializer, TypesSerializer, PokemonsSerializer2
 from .models import Pokemon, EggGroup, Type, Location
 from rest_framework.decorators import authentication_classes, permission_classes
 # Create your views here.
+
+
+@authentication_classes([])
+@permission_classes([])
+class PokemonsOfTypeViewSet(viewsets.ModelViewSet):
+    queryset = Pokemon.objects.filter(pokemonType=2)
+    serializer_class = PokemonsSerializer2
+    permission_classes = [permissions.IsAuthenticated]
 
 
 @authentication_classes([])
@@ -36,5 +44,4 @@ class LocationsViewSet(viewsets.ModelViewSet):
     queryset = Location.objects.all()
     serializer_class = LocationsSerializer
     permission_classes = [permissions.IsAuthenticated]
-
 
