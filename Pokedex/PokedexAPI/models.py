@@ -23,7 +23,7 @@ class Pokemon(models.Model):
     pokemonName = models.CharField(max_length=32)
     pokemonEvolution = models.ForeignKey("self", null=True, on_delete=models.DO_NOTHING, related_name='evolution')
     pokemonPrevolution = models.ForeignKey("self", null=True, on_delete=models.DO_NOTHING, related_name='prevolution')
-    pokemonType = models.ManyToManyField(Type)
-    pokemonEggGroup = models.ManyToManyField(EggGroup)
-    pokemonLocation = models.ManyToManyField(Location)
+    pokemonType = models.ManyToManyField(Type, related_name="pokeType")
+    pokemonEggGroup = models.ManyToManyField(EggGroup, related_name="pokeGroup")
+    pokemonLocation = models.ManyToManyField(Location, related_name="pokeLoc")
 
